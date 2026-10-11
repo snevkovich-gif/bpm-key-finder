@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "BPM & Key Finder",
+  "version": "0.1.0",
+  "description": "Toont BPM en toonsoort van het nummer dat op de pagina speelt (data van GetSongBPM).",
+  "icons": {
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png"
+  },
+  "permissions": [
+    "storage",
+    "https://api.getsong.co/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "browser_action": {
+    "default_icon": "icons/icon48.png",
+    "default_title": "BPM & Key Finder – instellingen"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "bpm-key-finder@sven.local",
+      "strict_min_version": "109.0"
+    }
+  }
+}
